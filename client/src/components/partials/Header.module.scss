@@ -1,0 +1,61 @@
+@import 'variables.scss';
+
+.header {
+  height: 120px;
+  position: relative;
+  display: flex;
+  background-color: $primary-color;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    margin-bottom: 0;
+    @include mediumMax {
+      font-size: 1.3rem;
+    }
+  }
+
+  img {
+    display: block;
+    width: 64px;
+    height: auto;
+    margin-right: 1rem;
+  }
+}
+
+.menuIcon {
+  margin-left: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+
+  
+  @include mediumMax {
+    margin-left: 1rem;
+  }
+}
+
+.buttonContainer {
+  margin-right: auto;
+  width: 35%;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+
+  @include mediumMax {
+    max-width: 220px;
+    margin: auto auto auto 1rem;
+  }
+}
+
+.headerButton {
+  background-color: white;
+  padding: 1vh;
+  border-radius: 4px;
+  margin-left: 1vh;
+}

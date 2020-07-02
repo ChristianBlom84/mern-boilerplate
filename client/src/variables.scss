@@ -1,0 +1,34 @@
+// Colors
+$primary-color: #2F80ED;
+$primary-color-transparent: rgba(47, 129, 237, 0.6);
+$success-color: #00ff80;
+$danger-color: #ff0000c4;
+$danger-color-transparent: #ff000060;
+
+// Fonts
+$base-font-size: 16px;
+$mobile-font-size: 18px;
+$headings-font: 'Oswald', sans-serif;
+$body-font: 'Cabin', sans-serif;
+
+// Breakpoints
+$BpSmall: 544px;
+$BpMedium: 767px;
+
+@mixin smallMax {
+  @media (max-width: #{$BpSmall}) {
+    @content;
+  }
+}
+
+@mixin mediumMax {
+  @media (max-width: #{$BpMedium}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: #{$BpMedium}) {
+    @content;
+  }
+}

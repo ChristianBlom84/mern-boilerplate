@@ -1,0 +1,110 @@
+@import 'variables';
+
+.background {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: $primary-color-transparent;
+    transition: opacity 0.2s ease-in;
+}
+
+.modal {
+    width: 340px;
+    height: 0px;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    transition: height 0.2s ease-out;
+    overflow: hidden;
+}
+
+.fadeIn {
+    opacity: 1;
+}
+
+.growIn {
+   height: 384px;
+
+   @include mediumMax {
+       height: 407px;
+   }
+}
+
+.successMessage {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+        border-radius: 3px;
+        border: 1px solid black;
+        height: 40px;
+        padding-left: 0.5rem;
+    }
+
+    label:nth-child(n+2) {
+        margin-top: 0.5rem;
+    }
+
+    .error {
+        color: red;
+        margin-top: 0;
+    }
+
+    select {
+        height: 40px;
+        border-radius: 3px;
+        border: 1px solid black;
+    }
+
+    .ctaButtons {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.button {
+    align-self: center;
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+    margin-top: 1rem;
+    border: 1px solid #5886e8;
+    background-color: $primary-color;
+    color: black;
+    transition: 0.3s;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    flex-grow: 0;
+    
+    &:hover {
+        background-color: $primary-color-transparent;
+    }
+
+    &:active {
+        box-shadow: none;
+    }
+    
+}
+
+.delete {
+    background-color: $danger-color;
+    border: 1px solid $danger-color;
+
+    &:hover {
+        background-color: $danger-color-transparent;
+    }
+}

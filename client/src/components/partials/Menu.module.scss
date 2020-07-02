@@ -1,0 +1,53 @@
+@import 'variables';
+
+.menu {
+  position: absolute;
+  left: -120px;
+  bottom: 0;
+  height: 50px;
+  width: 375px;
+  padding: 6px;
+  display: flex;
+  transform: scale(0);
+  background: rgb(255, 255, 255);
+
+  transition: all 0.2s ease-in;
+
+  :last-child {
+    margin-right: 0;
+  }
+
+  a, button {
+    position: relative;
+    font-family: $headings-font;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    text-decoration: none;
+    width: 117px;
+    height: 38px;
+    margin-right: 6px;
+    border-radius: 5px;
+    color: black;
+  
+    :visited {
+      color: black;
+    }
+  
+    &:hover {
+      background-color: rgb(99, 156, 231);
+    }
+  }
+
+  button {
+    border: none;
+  }
+}
+
+.open {
+  left: 0;
+  bottom: -50px;
+  transform: scale(1);
+}
+
