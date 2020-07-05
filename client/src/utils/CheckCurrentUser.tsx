@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { User } from '../components/pages/Users';
+import { User } from '../types/interfaces';
 
 export const checkCurrentUser = async (): Promise<User | undefined> => {
   try {

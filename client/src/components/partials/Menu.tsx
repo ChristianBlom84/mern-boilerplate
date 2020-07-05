@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext, MouseEvent } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
-import { AuthContext, UserRoles } from '../../context/authContext';
+import { AuthContext } from '../../context/authContext';
+import { UserRoles } from '../../types/enums';
 import Spinner from './Spinner';
 import styles from './Menu.module.scss';
 
@@ -42,9 +43,11 @@ const Menu: React.FC<Props> = ({ menuOpen, menuClosing }) => {
         delayedOpen && !menuClosing ? styles.open : ''
       }`}
     >
-      <Link to="/message">Send</Link>
-      <Link to="/subscribers">Subscribers</Link>
-      {context.role === UserRoles.Admin ? <Link to="/users">Users</Link> : null}
+      <Link to="#">Page1</Link>
+      <Link to="#">Page2</Link>
+      {context.role === UserRoles.Admin ? (
+        <Link to="#">Admin Only Page</Link>
+      ) : null}
       <button onClick={handleLogout}>Logout</button>
     </nav>
   ) : (

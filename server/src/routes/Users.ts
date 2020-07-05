@@ -9,7 +9,7 @@ import {
   logger,
   adminMW,
   userMW
-} from '@shared';
+} from '../shared';
 import { jwtCookieProps } from '../shared/cookies';
 import { JwtService } from '../shared/JwtService';
 
@@ -30,9 +30,9 @@ router.get('/current', userMW, async (req: Request, res: Response) => {
     }
     const clientData = await jwtService.decodeJwt(jwt);
 
-    const user = await User.findOne({ _id: clientData.userID })
-      .select('-pwdHash')
-      .populate('notifications');
+    const user = await User.findOne({ _id: clientData.userID }).select(
+      '-pwdHash'
+    );
 
     if (!user) {
       return res.status(BAD_REQUEST).json({ error: 'Could not fetch user.' });
@@ -53,9 +53,7 @@ router.get('/current', userMW, async (req: Request, res: Response) => {
 
 router.get('/all', adminMW, async (req: Request, res: Response) => {
   try {
-    const users = await User.find({})
-      .select('-pwdHash')
-      .populate('notifications');
+    const users = await User.find({}).select('-pwdHash');
     if (!users) {
       return res.status(BAD_REQUEST).json({ error: 'Could not fetch users.' });
     }
@@ -82,9 +80,6 @@ router.post(
       .bail()
       .trim()
       .escape(),
-    check('organization')
-      .optional()
-      .escape(),
     check('email', 'Please include a valid email')
       .isEmail()
       .escape(),
@@ -97,7 +92,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, organization, email, password, role } = req.body;
+    const { name, email, password, role } = req.body;
 
     try {
       // Check parameters
@@ -117,7 +112,6 @@ router.post(
         name,
         email,
         pwdHash,
-        organization: '4d616b696e67205761766573',
         role: userRole
       });
 
@@ -125,7 +119,6 @@ router.post(
 
       return res.status(CREATED).json({
         name: user.name,
-        organizationID: user.organization,
         email: user.email,
         role: user.role
       });

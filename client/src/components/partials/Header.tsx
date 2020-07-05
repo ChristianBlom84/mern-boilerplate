@@ -6,7 +6,6 @@ import { AuthContext } from '../../context/authContext';
 import Menu from './Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
-import icon from '../../assets/images/icon-transparent.png';
 
 const Header: React.FC<RouteComponentProps> = ({ location }) => {
   const context = useContext(AuthContext);
@@ -48,8 +47,7 @@ const Header: React.FC<RouteComponentProps> = ({ location }) => {
             : {}
         }
       >
-        <img src={icon} alt="" />
-        <h1>Check-In Safe Administration</h1>
+        <h1>Project Name</h1>
       </div>
       {menuOpen ? <Menu menuOpen={menuOpen} menuClosing={menuClosing} /> : null}
     </header>

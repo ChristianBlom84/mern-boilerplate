@@ -8,7 +8,7 @@ import {
   logger,
   jwtCookieProps,
   JwtService
-} from '@shared';
+} from '../shared';
 
 const router = Router();
 const jwtService = new JwtService();
@@ -34,7 +34,6 @@ router.post('/login', async (req: Request, res: Response) => {
         error: loginFailedErr
       });
     }
-    user.notifications;
     // Check password
     const pwdPassed = await bcrypt.compare(password, user.pwdHash);
     if (!pwdPassed) {

@@ -1,20 +1,8 @@
 import React, { useState, createContext } from 'react';
+import { UserRoles } from '../types/enums';
+import { Context } from '../types/interfaces';
 
 export const AuthContext = createContext<Context | undefined>(undefined);
-
-interface Context {
-  authStatus: boolean;
-  setAuthStatus: (authStatus: boolean) => void;
-  role: UserRoles;
-  setRole: (role: UserRoles) => void;
-  loading: boolean;
-  setLoading: (loading: boolean) => void;
-}
-
-export enum UserRoles {
-  Standard,
-  Admin
-}
 
 const AuthContextProvider: React.FC = props => {
   const [authStatus, setAuthStatus] = useState(false);

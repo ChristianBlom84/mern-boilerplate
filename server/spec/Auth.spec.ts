@@ -5,9 +5,14 @@ import bcrypt from 'bcrypt';
 import { BAD_REQUEST, CREATED, OK, UNAUTHORIZED } from 'http-status-codes';
 import { Response, SuperTest, Test } from 'supertest';
 import { setupDb, dropTables, tearDownDb } from './support/DbHelper';
-import { UserRoles } from '@entities';
+import { UserRoles } from '../src/models/User';
 import { User } from '../src/models/User';
-import { pErr, pwdSaltRounds, jwtCookieProps, loginFailedErr } from '@shared';
+import {
+  pErr,
+  pwdSaltRounds,
+  jwtCookieProps,
+  loginFailedErr
+} from '../src/shared';
 
 describe('UserRouter', () => {
   const authPath = '/api/auth';

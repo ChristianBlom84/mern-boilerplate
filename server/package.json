@@ -1,5 +1,5 @@
 {
-  "name": "check-in-app-backend",
+  "name": "mern-starter-backend",
   "version": "0.9.0",
   "scripts": {
     "build": "node ./util/build.js",
@@ -8,13 +8,6 @@
     "start-dev": "nodemon --config \"./util/nodemon.json\"",
     "test": "nodemon --config \"./util/nodemon.test.json\"",
     "ts-compile": "tsc --build tsconfig.prod.json"
-  },
-  "_moduleAliases": {
-    "@daos": "dist/daos",
-    "@entities": "dist/src/entities",
-    "@shared": "dist/src/shared",
-    "@server": "dist/src/Server",
-    "@util": "dist/util"
   },
   "dependencies": {
     "@types/cors": "^2.8.6",
@@ -29,7 +22,6 @@
     "express-validator": "^6.6.0",
     "http-status-codes": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
-    "module-alias": "^2.2.2",
     "mongoose": "^5.9.21",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.0",
@@ -53,8 +45,8 @@
     "@typescript-eslint/eslint-plugin": "^3.5.0",
     "@typescript-eslint/parser": "^3.5.0",
     "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.4.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "find": "^0.3.0",
     "fs-extra": "^9.0.1",
     "jasmine": "^3.5.0",

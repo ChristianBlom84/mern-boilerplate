@@ -1,8 +1,7 @@
 import bcrypt from 'bcrypt';
 import { SuperTest, Test } from 'supertest';
-import { UserRoles } from '@entities';
-import { User } from '../../src/models/User';
-import { pwdSaltRounds } from '@shared';
+import { User, UserRoles } from '../../src/models/User';
+import { pwdSaltRounds } from '../../src/shared';
 
 const creds = {
   email: 'christian.blom@makingwaves.com',

@@ -3,11 +3,10 @@ import supertest from 'supertest';
 
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
 import { Response, SuperTest, Test } from 'supertest';
-import { User } from '../src/models/User';
-import { IUser, UserRoles } from '@entities';
+import { User, UserRoles } from '../src/models/User';
 import { setupDb, dropTables } from './support/DbHelper';
 import { login } from './support/LoginAgent';
-import { pErr } from '@shared';
+import { pErr } from '../src/shared';
 
 describe('UserRouter', () => {
   const usersPath = '/api/users';

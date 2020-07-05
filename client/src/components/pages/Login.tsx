@@ -45,11 +45,8 @@ const Login: React.FC<RouteComponentProps> = ({ history }) => {
   return (
     <main className={styles.main}>
       <div className={styles.formContainer}>
-        <h2>Making Waves</h2>
-        <p className="preamble">
-          Sign in to administrate your organization and send out push
-          notifications.
-        </p>
+        <h2>Project Name</h2>
+        <p className="preamble">Sign in here.</p>
         <form
           className={styles.form}
           onSubmit={(e): Promise<void> => onSubmit(e)}

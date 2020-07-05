@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { logger } from '@shared';
+import { logger } from '../src/shared';
 
 const db = `${process.env.MONGO_URI}`;
 
