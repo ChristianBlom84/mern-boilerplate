@@ -27,7 +27,7 @@ router.post('/login', async (req: Request, res: Response) => {
       });
     }
     // Fetch user
-    const user = await User.findOne({ email }).populate('notifications');
+    const user = await User.findOne({ email });
     if (!user) {
       console.log('User not found');
       return res.status(UNAUTHORIZED).json({
@@ -65,10 +65,7 @@ router.post('/login', async (req: Request, res: Response) => {
 router.get('/logout', async (req: Request, res: Response) => {
   try {
     const { key, options } = jwtCookieProps;
-    res.clearCookie(key, {
-      ...options,
-      expires: new Date(options.maxAge)
-    });
+    res.clearCookie(key, options);
     return res.status(OK).end();
   } catch (err) {
     logger.error(err.message, err);

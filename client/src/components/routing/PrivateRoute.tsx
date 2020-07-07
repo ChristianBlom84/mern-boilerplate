@@ -9,7 +9,7 @@ interface Props extends RouteProps {
   component: any;
 }
 
-const PrivateRoute = (props: Props) => {
+const PrivateRoute = (props: Props): JSX.Element | null => {
   const { component: Component, ...rest } = props;
   const context = useContext(AuthContext);
   const [loading, setLoading] = useState(true);

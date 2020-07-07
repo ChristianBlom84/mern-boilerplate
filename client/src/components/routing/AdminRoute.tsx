@@ -3,14 +3,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 import { AuthContext } from '../../context/authContext';
-import { UserRoles } from '../../context/authContext';
+import { UserRoles } from '../../types/enums';
 import { checkCurrentUser } from '../../utils/CheckCurrentUser';
 
 interface Props extends RouteProps {
   component: any;
 }
 
-const AdminRoute = (props: Props) => {
+const AdminRoute = (props: Props): JSX.Element | null => {
   const { component: Component, ...rest } = props;
   const context = useContext(AuthContext);
   const [loading, setLoading] = useState(true);

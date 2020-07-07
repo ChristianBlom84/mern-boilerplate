@@ -12,7 +12,6 @@ const jwtService = new JwtService();
 export const paramMissingError =
   'One or more of the required parameters was missing.';
 export const userNotFoundError = 'User not found.';
-export const subscriberNotFoundError = 'Subscriber not found.';
 export const loginFailedErr = 'Login failed';
 
 // Numbers
@@ -68,7 +67,7 @@ export const userMW = async (
     if (!jwt) {
       throw Error('JWT not present in signed cookie.');
     }
-    // Make sure user role is an admin
+    // Make sure user role is admin or standard
     const clientData = await jwtService.decodeJwt(jwt);
     if (
       clientData.role === UserRoles.Admin ||
@@ -76,7 +75,7 @@ export const userMW = async (
     ) {
       next();
     } else {
-      throw Error('JWT not present in signed cookie.');
+      throw Error('You do not have permission to do that.');
     }
   } catch (err) {
     return res.status(UNAUTHORIZED).json({
